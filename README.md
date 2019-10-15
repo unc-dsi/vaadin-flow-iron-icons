@@ -1,5 +1,7 @@
 # Polymer's icons definitions for Vaadin
 
+[![Build Status](https://travis-ci.org/unc-dsi/vaadin-flow-iron-icons.svg?branch=master)](https://travis-ci.org/unc-dsi/vaadin-flow-iron-icons)
+
 Provides an easy way to include [Polymer iron-icons](https://github.com/PolymerElements/iron-icons) inside Vaadin applications.
 
 ## Usage
