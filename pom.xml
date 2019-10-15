@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>nc.unc.vaadin.flow.polymer</groupId>
+    <artifactId>iron-icons</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <frontend-maven-plugin.version>1.8.0</frontend-maven-plugin.version>
+        <node.url>https://nodejs.org/dist/</node.url>
+        <node.version>v10.16.3</node.version>
+        <npm.registry.url>https://registry.npmjs.org/</npm.registry.url>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <vaadin.version>14.0.8</vaadin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-server</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-icons-flow</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <version>${vaadin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>${frontend-maven-plugin.version}</version>
+                <configuration>
+                    <nodeVersion>${node.version}</nodeVersion>
+                    <downloadRoot>${node.url}</downloadRoot>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install-node-and-npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>set-npm-registry</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>config set registry=${npm.registry.url}</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!--
+                    Take care of synchronizing java dependencies and imports in
+                    package.json and main.js files.
+                    It also creates webpack.config.js if not exists yet.
+                -->
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>${vaadin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-frontend</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven-clean-plugin.version}</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>node</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>node_modules</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>${basedir}</directory>
+                            <includes>
+                                <include>package.json</include>
+                                <include>package-lock.json</include>
+                                <include>webpack.config.js</include>
+                                <include>webpack.generated.js</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <repositories>
+        <repository>
+            <id>Vaadin Directory</id>
+            <url>https://maven.vaadin.com/vaadin-addons</url>
+        </repository>
+        <repository>
+            <id>Vaadin prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+        </repository>
+    </repositories>
+</project>
+
