@@ -2,11 +2,8 @@ language: java
 jdk: openjdk8
 
 install: true
-script: "./mvnw clean package"
+script: "./mvnw clean install -P directory"
 
-before_deploy: 
-   - ./mvnw versions:set -DgenerateBackupPoms=false -DnewVersion=$TRAVIS_TAG
-   - ./mvnw assembly:assembly
 deploy:
   provider: releases
   api_key:
