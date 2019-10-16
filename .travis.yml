@@ -6,6 +6,9 @@ script: "./mvnw clean install -P directory"
 
 deploy:
   provider: releases
+  draft: true
+  skip_cleanup: true
+  overwrite: true
   api_key:
     secure: EDsEnvK+5UqAzGj9vr063/P03SF3a2Dcej+ZCCkVoJTOzoQ+mwPs/NG8dpdAmkrw1EfFS4DrNf3inBOHYTKTMRDJDGpaR+6onag3IXK8A5R2l8bMPYxToxE86AHQtCEJZ5KEGHV6WDRWokx00xFTxRlRS/MKPEnlvvkI2YtDAkPKdv0P1aZEl+O9NuPx4X3ogLUBTxvYbZd52pbkFgn8AP2XIgKyjxSF0QMjONgOGEv7xq700+gCxj8XUoqhae1A6bUrIC9KbYrJ0sO9ZUKNnXypFT+NCVRLibPlBkx+geDsFhT8eiKBdCY+BETyGSmXB4z7+rGCGkuuGLuAzXklRonuxHtuTRzRWRf+wodrEcKx3HpLE9rBYbdLwH/U+oi8sQ5A9v11RpHMx19PtIFxKZQc6bJhG28dzpwcG/7cmDV35HkfoVOfTAOYmJvknnLux2YTIujAYbnJPp43Y4iKtL0cErhStZfi5qib4h/+iRTZDE1/WeSuC9lV9v4goluMnzXOoRuO1XirFtQqjCXPoeyR6ZLZqZ7RTQntg9hKzHW9QXLZ21woICE4Gm/5hB5MARIg1NWIQF/rzdd3fabgwscEpCyyyK3T9wNOFYQ5AQfyxRMV/I0i9VZr0NhgZJSsvZrSLy8YGad8HtJbF9hPsuSxf1NsG+T5NlhEB3UUaBE=
   file: target/iron-icons-$TRAVIS_TAG.zip
