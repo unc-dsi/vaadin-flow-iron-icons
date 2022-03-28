@@ -1,9 +1,8 @@
 package nc.unc.vaadin.flow.polymer.iron.icons;
 
 import com.vaadin.flow.component.dependency.JsModule;
-import com.vaadin.flow.component.dependency.NpmPackage;
+import nc.unc.vaadin.flow.polymer.iron.IronIconDefinition;
 
-@NpmPackage(value = "@polymer/iron-icons", version = IronIcons.VERSION)
 @JsModule("@polymer/iron-icons/places-icons.js")
 public enum IronPlacesIcons implements IronIconDefinition {
     AC_UNIT,

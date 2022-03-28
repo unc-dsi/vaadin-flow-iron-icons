@@ -4,33 +4,28 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>nc.unc.vaadin.flow.polymer</groupId>
     <artifactId>iron-icons</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
     
     <properties>
-        <frontend-maven-plugin.version>1.8.0</frontend-maven-plugin.version>
+        <frontend-maven-plugin.version>1.10.0</frontend-maven-plugin.version>
         <node.url>https://nodejs.org/dist/</node.url>
-        <node.version>v10.16.3</node.version>
+        <node.version>v16.14.2</node.version>
         <npm.registry.url>https://registry.npmjs.org/</npm.registry.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
-        <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
-        <vaadin.version>14.6.8</vaadin.version>
+        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <vaadin.version>23.0.2</vaadin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>flow-server</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-icons-flow</artifactId>
         </dependency>
     </dependencies>
 
