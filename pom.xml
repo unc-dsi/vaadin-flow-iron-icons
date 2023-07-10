@@ -19,7 +19,7 @@
         <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <vaadin.version>23.0.4</vaadin.version>
+        <vaadin.version>23.0.8</vaadin.version>
     </properties>
 
     <dependencies>
